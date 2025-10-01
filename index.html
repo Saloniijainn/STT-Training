@@ -1,80 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Saloni P Jain - Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saloni P Jain - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navigation bar -->
-  <nav>
-    <div class="container">
-      <div class="logo">Saloni P Jain</div>
-      <button class="menu-toggle" id="menuToggle">☰</button>
-      <ul id="navMenu">
-        <li><a href="#home">Home</a></li>
-        <!-- NEW menu links -->
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Hero section -->
-  <section class="hero" id="home">
-    <h1>Saloni P Jain</h1>
-    <p class="subtitle">Full Stack Data Science Developer | AI Enthusiast</p>
-    <p>Tech enthusiast building AI-powered apps, chatbots, and full-stack platforms.</p>
-  </section>
-
-  <!-- NEW About section -->
-  <section class="about" id="about">
-    <div class="container">
-      <h2>About Me</h2>
-      <p>I'm a B.E. student in Information Science and Engineering at VVCE, Mysore. Passionate about AI, data science, and full-stack development.</p>
-    </div>
-  </section>
-
-  <!-- NEW Experience section -->
-  <section id="experience">
-    <div class="container">
-      <h2>Professional Experience</h2>
-      <div class="experience-timeline">
-        <div class="timeline-item">
-          <h3>Full Stack Data Science Intern — Synabl Technologies (2025)</h3>
-          <ul>
-            <li>Built an AI chatbot using Flask, React, semantic search and RAG.</li>
-            <li>Optimized pipeline performance and reduced API calls.</li>
-          </ul>
+    <nav>
+        <div class="container">
+            <div class="logo">Saloni P Jain</div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <ul id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-      </div>
-    </div>
-  </section>
-  <!-- Projects section -->
-  <section id="projects">
-    <div class="container">
-      <h2>Projects</h2>
-      <div class="projects-grid">
-        
-        <!-- Project 1 -->
-        <div class="project-card">
-          <h3>AI Chatbot with Flask + React</h3>
-          <p>Built an intelligent chatbot using Flask (backend), React (frontend), semantic search, and RAG for contextual answers.</p>
-          <a href="#" class="btn">View Project</a>
+    </nav>
+
+    <section class="hero" id="home">
+        <h1>Saloni P Jain</h1>
+        <p class="subtitle">Full Stack Data Science Developer | AI Enthusiast</p>
+        <p>Tech enthusiast with strong expertise in data science, AI, and full-stack development. Experienced in building AI-powered chatbots, predictive models, and end-to-end web applications. Skilled at transforming complex data into actionable insights and optimizing workflows.</p>
+        <div class="hero-buttons">
+            <a href="#projects" class="btn">View My Work</a>
+            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
         </div>
+    </section>
 
-        <!-- Project 2 -->
-        <div class="project-card">
-          <h3>ZERO — E-Commerce Platform</h3>
-          <p>Developed a full-stack web platform with authentication, product management, and data-driven recommendations.</p>
-          <a href="#" class="btn">View Project</a>
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Passionate About Innovation</h3>
+                    <p>
+                        I'm a B.E. student in Information Science and Engineering at VVCE, Mysore, with a strong passion for AI, data science, and full-stack development. Currently maintaining a CGPA of 8.79, I'm driven to contribute to impactful projects with measurable outcomes.
+                    </p>
+                    <p>
+                        My journey spans from building production-ready AI chatbots with RAG pipelines to developing full-stack platforms that serve 100+ users. I believe in the power of technology to solve real-world problems and create meaningful impact.
+                    </p>
+                    <p>
+                        Beyond coding, I'm committed to giving back to the community as a Lead Volunteer at U&I Trust, where I mentor underprivileged children and organize educational initiatives.
+                    </p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">8.79</div>
+                        <div class="stat-label">CGPA</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Children Impacted</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">30%</div>
+                        <div class="stat-label">API Optimization</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Platform Users</div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-      </div>
-    </div>
-  </section>
+    <section id="experience">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <h3>Full Stack Data Science Intern</h3>
+                            <div class="timeline-company">Synabl Technologies</div>
+                        </div>
+                        <div class="timeline-date">2025</div>
+                    </div>
+                    <ul>
+                        <li>Built a production-ready AI chatbot using Python, Flask, React, GPT-4o-mini, RAG pipeline, FAISS, and SentenceTransformers for semantic search</li>
+                        <li>Implemented Human-in-the-Loop feedback, faithfulness scoring, and out-of-context fallbacks to enhance chatbot accuracy</li>
+                        <li>Optimized pipeline performance with caching, logging, and evaluation metrics, reducing API calls by 30%</li>
+                        <li>Delivered 3+ Knowledge Transfer sessions to ensure smooth project handoff</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <h3>Lead Volunteer</h3>
+                            <div class="timeline-company">U&I Trust - Sharada Nele</div>
+                        </div>
+                        <div class="timeline-date">2024 – 2025</div>
+                    </div>
+                    <ul>
+                        <li>Led 20+ volunteers to organize weekly educational sessions and mentorship activities for underprivileged children</li>
+                        <li>Created consistent, supportive learning environments impacting 50+ children regularly</li>
+                        <li>Developed curriculum and teaching materials focused on foundational education and life skills</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script src="script.js"></script>
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🏥</div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-year">2025</span>
+                        <h3>Agentic AI-based Medical Transcription System</h3>
+                        <p>Developing an AI transcription system using Python, Flask, NLP, speech-to-text, agentic workflows, and GPT-4o-mini to differentiate doctor/patient speech. Implementing a RAG-based suggestion and summary system for structured, context-aware medical notes with preprocessing pipelines and feedback loops to reduce manual documentation.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Flask</span>
+                            <span class="tag">NLP</span>
+                            <span class="tag">GPT-4o-mini</span>
+                            <span class="tag">RAG</span>
+                            <span class="tag">Speech-to-Text</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">💬</div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-year">2025</span>
+                        <h3>Production AI Chatbot</h3>
+                        <p>Built a production-ready AI chatbot with semantic search capabilities using FAISS and SentenceTransformers. Implemented RAG pipeline with GPT-4o-mini, featuring Human-in-the-Loop feedback and faithfulness scoring. Achieved 30% reduction in API calls through optimization.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Flask</span>
+                            <span class="tag">React</span>
+                            <span class="tag">GPT-4o-mini</span>
+                            <span class="tag">FAISS</span>
+                            <span class="tag">RAG</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">📚</div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-year">2024</span>
+                        <h3>ZERO – Academic Management Platform</h3>
+                        <p>Developed a full-stack Django platform to manage assignments, question banks, and submissions for 100+ students. Designed modular apps with role-based access control, secure authentication, and an admin dashboard, streamlining academic workflows.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Django</span>
+                            <span class="tag">Django ORM</span>
+                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Programming & Data</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">Python</div>
+                        <div class="skill-item">SQL</div>
+                        <div class="skill-item">C</div>
+                        <div class="skill-item">C++</div>
+                        <div class="skill-item">OOP</div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Machine Learning & AI</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">scikit-learn</div>
+                        <div class="skill-item">pandas</div>
+                        <div class="skill-item">NumPy</div>
+                        <div class="skill-item">NLP</div>
+                        <div class="skill-item">LLMs</div>
+                        <div class="skill-item">Generative AI</div>
+                        <div class="skill-item">RAG</div>
+                        <div class="skill-item">FAISS</div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Web Development</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">Django</div>
+                        <div class="skill-item">React</div>
+                        <div class="skill-item">Flask</div>
+                        <div class="skill-item">HTML</div>
+                        <div class="skill-item">CSS</div>
+                        <div class="skill-item">Bootstrap</div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Data Engineering & Cloud</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">SQL Pipelines</div>
+                        <div class="skill-item">AWS</div>
+                        <div class="skill-item">GitHub</div>
+                        <div class="skill-item">API Integration</div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Visualization & BI</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">Seaborn</div>
+                        <div class="skill-item">Power BI</div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">Collaborative</div>
+                        <div class="skill-item">Adaptable</div>
+                        <div class="skill-item">Improvement-driven</div>
+                        <div class="skill-item">Effective Communicator</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="education" id="education">
+        <div class="container">
+            <h2>Education & Certifications</h2>
+            
+            <div class="education-card">
+                <div class="education-header">
+                    <div>
+                        <h3>Vidyavardhaka College of Engineering (VVCE)</h3>
+                        <p class="degree">B.E. in Information Science and Engineering</p>
+                        <p>Mysore, India</p>
+                    </div>
+                    <div>
+                        <div class="cgpa">CGPA: 8.79</div>
+                        <div class="timeline-date">2022 – 2026</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; margin-bottom: 2rem; color: #1a1a2e;">Certifications</h3>
+            <div class="certifications-grid">
+                <div class="cert-item">
+                    <h4>Google Cloud Career Launchpad</h4>
+                    <p class="cert-org">Cloud Engineer Track</p>
+                </div>
+                <div class="cert-item">
+                    <h4>Google Cloud Career Launchpad</h4>
+                    <p class="cert-org">Data Analytics Track</p>
+                </div>
+                <div class="cert-item">
+                    <h4>Machine Learning Program</h4>
+                    <p class="cert-org">Finlatics AI Internship (2024-2025)</p>
+                </div>
+                <div class="cert-item">
+                    <h4>AWS Academy Graduate</h4>
+                    <p class="cert-org">Cloud Architecting</p>
+                </div>
+                <div class="cert-item">
+                    <h4>Introduction to MongoDB</h4>
+                    <p class="cert-org">MongoDB Inc.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <a href="mailto:saloniijainnn@gmail.com">saloniijainnn@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <h3>Phone</h3>
+                    <a href="tel:+917483647388">+91 7483647388</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">💼</div>
+                    <h3>LinkedIn</h3>
+                    <a href="https://linkedin.com/in/SaloniPJain" target="_blank">@SaloniPJain</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">💻</div>
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/Saloniijainn" target="_blank">@Saloniijainn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Saloni P Jain. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
 </body>
 </html>
