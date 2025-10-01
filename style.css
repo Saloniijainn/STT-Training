@@ -59,3 +59,33 @@ nav ul {
   color: #00d9ff;
   margin-bottom: 1rem;
 }
+/* Mobile menu toggle */
+.menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  display: none; /* hidden on big screens */
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: #1a1a2e;
+    position: absolute;
+    top: 60px;
+    right: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block; /* show hamburger icon on mobile */
+  }
+}
