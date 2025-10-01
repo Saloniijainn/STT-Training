@@ -7,37 +7,48 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
+    <nav id="navbar">
         <div class="container">
             <div class="logo">Saloni P Jain</div>
             <button class="menu-toggle" id="menuToggle">☰</button>
             <ul id="navMenu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <section class="hero" id="home">
-        <h1>Saloni P Jain</h1>
-        <p class="subtitle">Full Stack Data Science Developer | AI Enthusiast</p>
-        <p>Tech enthusiast with strong expertise in data science, AI, and full-stack development. Experienced in building AI-powered chatbots, predictive models, and end-to-end web applications. Skilled at transforming complex data into actionable insights and optimizing workflows.</p>
-        <div class="hero-buttons">
-            <a href="#projects" class="btn">View My Work</a>
-            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        <div class="hero-content">
+            <div class="profile-image-container">
+                <!-- Replace the src with your actual image path -->
+                <!-- <img src="your-photo.jpg" alt="Saloni P Jain" class="profile-image"> -->
+                <!-- Using placeholder for now - remove this div when you add your image -->
+                <div class="profile-placeholder">SJ</div>
+            </div>
+            <h1 class="reveal">Saloni P Jain</h1>
+            <p class="subtitle reveal">
+                <span id="typed-text"></span>
+                <span class="typing-cursor">|</span>
+            </p>
+            <p class="reveal">Tech enthusiast with strong expertise in data science, AI, and full-stack development. Experienced in building AI-powered chatbots, predictive models, and end-to-end web applications. Skilled at transforming complex data into actionable insights and optimizing workflows.</p>
+            <div class="hero-buttons reveal">
+                <a href="#projects" class="btn">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
         </div>
     </section>
 
     <section class="about" id="about">
         <div class="container">
-            <h2>About Me</h2>
+            <h2 class="reveal">About Me</h2>
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-text reveal">
                     <h3>Passionate About Innovation</h3>
                     <p>
                         I'm a B.E. student in Information Science and Engineering at VVCE, Mysore, with a strong passion for AI, data science, and full-stack development. Currently maintaining a CGPA of 8.79, I'm driven to contribute to impactful projects with measurable outcomes.
@@ -49,21 +60,21 @@
                         Beyond coding, I'm committed to giving back to the community as a Lead Volunteer at U&I Trust, where I mentor underprivileged children and organize educational initiatives.
                     </p>
                 </div>
-                <div class="about-stats">
+                <div class="about-stats reveal">
                     <div class="stat-card">
-                        <div class="stat-number">8.79</div>
+                        <div class="stat-number" data-count="8.79">0</div>
                         <div class="stat-label">CGPA</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">50+</div>
+                        <div class="stat-number" data-count="50">0</div>
                         <div class="stat-label">Children Impacted</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">30%</div>
-                        <div class="stat-label">API Optimization</div>
+                        <div class="stat-number" data-count="30">0</div>
+                        <div class="stat-label">API Optimization %</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">100+</div>
+                        <div class="stat-number" data-count="100">0</div>
                         <div class="stat-label">Platform Users</div>
                     </div>
                 </div>
@@ -73,9 +84,9 @@
 
     <section id="experience">
         <div class="container">
-            <h2>Professional Experience</h2>
+            <h2 class="reveal">Professional Experience</h2>
             <div class="experience-timeline">
-                <div class="timeline-item">
+                <div class="timeline-item reveal">
                     <div class="timeline-header">
                         <div>
                             <h3>Full Stack Data Science Intern</h3>
@@ -91,7 +102,7 @@
                     </ul>
                 </div>
                 
-                <div class="timeline-item">
+                <div class="timeline-item reveal">
                     <div class="timeline-header">
                         <div>
                             <h3>Lead Volunteer</h3>
@@ -111,9 +122,9 @@
 
     <section class="projects" id="projects">
         <div class="container">
-            <h2>Featured Projects</h2>
+            <h2 class="reveal">Featured Projects</h2>
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card reveal">
                     <div class="project-header">
                         <div class="project-icon">🏥</div>
                     </div>
@@ -132,7 +143,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card reveal">
                     <div class="project-header">
                         <div class="project-icon">💬</div>
                     </div>
@@ -151,7 +162,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card reveal">
                     <div class="project-header">
                         <div class="project-icon">📚</div>
                     </div>
@@ -174,9 +185,9 @@
 
     <section id="skills">
         <div class="container">
-            <h2>Technical Skills</h2>
+            <h2 class="reveal">Technical Skills</h2>
             <div class="skills-container">
-                <div class="skill-category">
+                <div class="skill-category reveal">
                     <h3>Programming & Data</h3>
                     <div class="skills-list">
                         <div class="skill-item">Python</div>
@@ -187,7 +198,7 @@
                     </div>
                 </div>
 
-                <div class="skill-category">
+                <div class="skill-category reveal">
                     <h3>Machine Learning & AI</h3>
                     <div class="skills-list">
                         <div class="skill-item">scikit-learn</div>
@@ -201,7 +212,7 @@
                     </div>
                 </div>
 
-                <div class="skill-category">
+                <div class="skill-category reveal">
                     <h3>Web Development</h3>
                     <div class="skills-list">
                         <div class="skill-item">Django</div>
@@ -213,7 +224,7 @@
                     </div>
                 </div>
 
-                <div class="skill-category">
+                <div class="skill-category reveal">
                     <h3>Data Engineering & Cloud</h3>
                     <div class="skills-list">
                         <div class="skill-item">SQL Pipelines</div>
@@ -223,7 +234,7 @@
                     </div>
                 </div>
 
-                <div class="skill-category">
+                <div class="skill-category reveal">
                     <h3>Visualization & BI</h3>
                     <div class="skills-list">
                         <div class="skill-item">Seaborn</div>
@@ -231,7 +242,7 @@
                     </div>
                 </div>
 
-                <div class="skill-category">
+                <div class="skill-category reveal">
                     <h3>Soft Skills</h3>
                     <div class="skills-list">
                         <div class="skill-item">Collaborative</div>
@@ -246,9 +257,9 @@
 
     <section class="education" id="education">
         <div class="container">
-            <h2>Education & Certifications</h2>
+            <h2 class="reveal">Education & Certifications</h2>
             
-            <div class="education-card">
+            <div class="education-card reveal">
                 <div class="education-header">
                     <div>
                         <h3>Vidyavardhaka College of Engineering (VVCE)</h3>
@@ -264,23 +275,19 @@
 
             <h3 style="text-align: center; margin-bottom: 2rem; color: #1a1a2e;">Certifications</h3>
             <div class="certifications-grid">
-                <div class="cert-item">
+                <div class="cert-item reveal">
                     <h4>Google Cloud Career Launchpad</h4>
                     <p class="cert-org">Cloud Engineer Track</p>
                 </div>
-                <div class="cert-item">
+                <div class="cert-item reveal">
                     <h4>Google Cloud Career Launchpad</h4>
                     <p class="cert-org">Data Analytics Track</p>
                 </div>
-                <div class="cert-item">
-                    <h4>Machine Learning Program</h4>
-                    <p class="cert-org">Finlatics AI Internship (2024-2025)</p>
-                </div>
-                <div class="cert-item">
+                <div class="cert-item reveal">
                     <h4>AWS Academy Graduate</h4>
                     <p class="cert-org">Cloud Architecting</p>
                 </div>
-                <div class="cert-item">
+                <div class="cert-item reveal">
                     <h4>Introduction to MongoDB</h4>
                     <p class="cert-org">MongoDB Inc.</p>
                 </div>
@@ -290,24 +297,19 @@
 
     <section class="contact" id="contact">
         <div class="container">
-            <h2>Let's Connect</h2>
+            <h2 class="reveal">Let's Connect</h2>
             <div class="contact-grid">
-                <div class="contact-item">
+                <div class="contact-item reveal">
                     <div class="contact-icon">📧</div>
                     <h3>Email</h3>
                     <a href="mailto:saloniijainnn@gmail.com">saloniijainnn@gmail.com</a>
                 </div>
-                <div class="contact-item">
+                <div class="contact-item reveal">
                     <div class="contact-icon">📱</div>
                     <h3>Phone</h3>
                     <a href="tel:+917483647388">+91 7483647388</a>
                 </div>
-                <div class="contact-item">
-                    <div class="contact-icon">💼</div>
-                    <h3>LinkedIn</h3>
-                    <a href="https://linkedin.com/in/SaloniPJain" target="_blank">@SaloniPJain</a>
-                </div>
-                <div class="contact-item">
+                <div class="contact-item reveal">
                     <div class="contact-icon">💻</div>
                     <h3>GitHub</h3>
                     <a href="https://github.com/Saloniijainn" target="_blank">@Saloniijainn</a>
