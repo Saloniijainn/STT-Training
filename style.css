@@ -89,3 +89,40 @@ nav ul {
     display: block; /* show hamburger icon on mobile */
   }
 }
+/* Sections */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  padding: 80px 1.5rem;
+}
+
+section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1a1a2e;
+}
+
+/* About */
+.about {
+  background: #f8f9fa;
+  color: #333;
+}
+
+/* Experience */
+.experience-timeline {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.timeline-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-bottom: 1rem;
+}
