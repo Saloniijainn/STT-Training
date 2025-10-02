@@ -10,7 +10,11 @@
     <nav id="navbar">
         <div class="container">
             <div class="logo">Saloni P Jain</div>
-            <button class="menu-toggle" id="menuToggle">☰</button>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul id="navMenu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
@@ -26,9 +30,6 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="profile-image-container">
-                <!-- Replace the src with your actual image path -->
-                <!-- <img src="your-photo.jpg" alt="Saloni P Jain" class="profile-image"> -->
-                <!-- Using placeholder for now - remove this div when you add your image -->
                 <div class="profile-placeholder">SJ</div>
             </div>
             <h1 class="reveal">Saloni P Jain</h1>
@@ -36,9 +37,9 @@
                 <span id="typed-text"></span>
                 <span class="typing-cursor">|</span>
             </p>
-            <p class="reveal">Tech enthusiast with strong expertise in data science, AI, and full-stack development. Experienced in building AI-powered chatbots, predictive models, and end-to-end web applications. Skilled at transforming complex data into actionable insights and optimizing workflows.</p>
+            <p class="hero-description reveal">Tech enthusiast with strong expertise in data science, AI, and full-stack development. Experienced in building AI-powered chatbots, predictive models, and end-to-end web applications.</p>
             <div class="hero-buttons reveal">
-                <a href="#projects" class="btn">View My Work</a>
+                <a href="#projects" class="btn btn-primary">View My Work</a>
                 <a href="#contact" class="btn btn-secondary">Get In Touch</a>
             </div>
         </div>
@@ -50,15 +51,9 @@
             <div class="about-content">
                 <div class="about-text reveal">
                     <h3>Passionate About Innovation</h3>
-                    <p>
-                        I'm a B.E. student in Information Science and Engineering at VVCE, Mysore, with a strong passion for AI, data science, and full-stack development. Currently maintaining a CGPA of 8.79, I'm driven to contribute to impactful projects with measurable outcomes.
-                    </p>
-                    <p>
-                        My journey spans from building production-ready AI chatbots with RAG pipelines to developing full-stack platforms that serve 100+ users. I believe in the power of technology to solve real-world problems and create meaningful impact.
-                    </p>
-                    <p>
-                        Beyond coding, I'm committed to giving back to the community as a Lead Volunteer at U&I Trust, where I mentor underprivileged children and organize educational initiatives.
-                    </p>
+                    <p>I'm a B.E. student in Information Science and Engineering at VVCE, Mysore, with a strong passion for AI, data science, and full-stack development. Currently maintaining a CGPA of 8.79, I'm driven to contribute to impactful projects with measurable outcomes.</p>
+                    <p>My journey spans from building production-ready AI chatbots with RAG pipelines to developing full-stack platforms that serve 100+ users. I believe in the power of technology to solve real-world problems and create meaningful impact.</p>
+                    <p>Beyond coding, I'm committed to giving back to the community as a Lead Volunteer at U&I Trust, where I mentor underprivileged children and organize educational initiatives.</p>
                 </div>
                 <div class="about-stats reveal">
                     <div class="stat-card">
@@ -125,13 +120,10 @@
             <h2 class="reveal">Featured Projects</h2>
             <div class="projects-grid">
                 <div class="project-card reveal">
-                    <div class="project-header">
-                        <div class="project-icon">🏥</div>
-                    </div>
                     <div class="project-content">
                         <span class="project-year">2025</span>
                         <h3>Agentic AI-based Medical Transcription System</h3>
-                        <p>Developing an AI transcription system using Python, Flask, NLP, speech-to-text, agentic workflows, and GPT-4o-mini to differentiate doctor/patient speech. Implementing a RAG-based suggestion and summary system for structured, context-aware medical notes with preprocessing pipelines and feedback loops to reduce manual documentation.</p>
+                        <p>Developing an AI transcription system using Python, Flask, NLP, speech-to-text, agentic workflows, and GPT-4o-mini to differentiate doctor/patient speech. Implementing a RAG-based suggestion and summary system for structured, context-aware medical notes.</p>
                         <div class="project-tags">
                             <span class="tag">Python</span>
                             <span class="tag">Flask</span>
@@ -144,13 +136,10 @@
                 </div>
 
                 <div class="project-card reveal">
-                    <div class="project-header">
-                        <div class="project-icon">💬</div>
-                    </div>
                     <div class="project-content">
                         <span class="project-year">2025</span>
                         <h3>Production AI Chatbot</h3>
-                        <p>Built a production-ready AI chatbot with semantic search capabilities using FAISS and SentenceTransformers. Implemented RAG pipeline with GPT-4o-mini, featuring Human-in-the-Loop feedback and faithfulness scoring. Achieved 30% reduction in API calls through optimization.</p>
+                        <p>Built a production-ready AI chatbot with semantic search capabilities using FAISS and SentenceTransformers. Implemented RAG pipeline with GPT-4o-mini, featuring Human-in-the-Loop feedback and faithfulness scoring. Achieved 30% reduction in API calls.</p>
                         <div class="project-tags">
                             <span class="tag">Python</span>
                             <span class="tag">Flask</span>
@@ -163,13 +152,10 @@
                 </div>
 
                 <div class="project-card reveal">
-                    <div class="project-header">
-                        <div class="project-icon">📚</div>
-                    </div>
                     <div class="project-content">
                         <span class="project-year">2024</span>
                         <h3>ZERO – Academic Management Platform</h3>
-                        <p>Developed a full-stack Django platform to manage assignments, question banks, and submissions for 100+ students. Designed modular apps with role-based access control, secure authentication, and an admin dashboard, streamlining academic workflows.</p>
+                        <p>Developed a full-stack Django platform to manage assignments, question banks, and submissions for 100+ students. Designed modular apps with role-based access control, secure authentication, and an admin dashboard.</p>
                         <div class="project-tags">
                             <span class="tag">Python</span>
                             <span class="tag">Django</span>
@@ -264,7 +250,7 @@
                     <div>
                         <h3>Vidyavardhaka College of Engineering (VVCE)</h3>
                         <p class="degree">B.E. in Information Science and Engineering</p>
-                        <p>Mysore, India</p>
+                        <p class="location">Mysore, India</p>
                     </div>
                     <div>
                         <div class="cgpa">CGPA: 8.79</div>
@@ -273,7 +259,7 @@
                 </div>
             </div>
 
-            <h3 style="text-align: center; margin-bottom: 2rem; color: #1a1a2e;">Certifications</h3>
+            <h3 class="certifications-title">Certifications</h3>
             <div class="certifications-grid">
                 <div class="cert-item reveal">
                     <h4>Google Cloud Career Launchpad</h4>
@@ -298,19 +284,17 @@
     <section class="contact" id="contact">
         <div class="container">
             <h2 class="reveal">Let's Connect</h2>
+            <p class="contact-subtitle reveal">I'm always open to discussing new opportunities and collaborations</p>
             <div class="contact-grid">
                 <div class="contact-item reveal">
-                    <div class="contact-icon">📧</div>
                     <h3>Email</h3>
                     <a href="mailto:saloniijainnn@gmail.com">saloniijainnn@gmail.com</a>
                 </div>
                 <div class="contact-item reveal">
-                    <div class="contact-icon">📱</div>
                     <h3>Phone</h3>
                     <a href="tel:+917483647388">+91 7483647388</a>
                 </div>
                 <div class="contact-item reveal">
-                    <div class="contact-icon">💻</div>
                     <h3>GitHub</h3>
                     <a href="https://github.com/Saloniijainn" target="_blank">@Saloniijainn</a>
                 </div>

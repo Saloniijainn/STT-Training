@@ -85,7 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(type, typingDelay);
     }
 
-    // Start typing effect after a short delay
     setTimeout(type, 1000);
 
     // Scroll reveal animation
@@ -104,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll(); // Initial check
+    revealOnScroll();
 
     // Counter animation for stats
     const statNumbers = document.querySelectorAll('.stat-number');
@@ -148,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.addEventListener('scroll', animateCounters);
-    animateCounters(); // Initial check
+    animateCounters();
 
     // Smooth scroll with offset for fixed navbar
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
