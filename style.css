@@ -15,6 +15,11 @@ body {
     background: #fff;
 }
 
+/* FIX: Compensate for the fixed navbar height (approx. 80px) when linking to sections */
+section[id] {
+    scroll-margin-top: 80px; 
+} 
+
 /* Navigation */
 nav {
     background: #fff;
@@ -223,13 +228,15 @@ nav a.active {
 
 /* Sections */
 section {
-    padding: 100px 2rem;
+    /* FIX: Reduced general top padding to prevent large gap below fixed navbar */
+    padding: 60px 2rem;
 }
 
 section h2 {
     text-align: center;
     font-size: 2.8rem;
-    margin-bottom: 4rem;
+    /* FIX: Reduced margin-bottom to pull content up closer to the title */
+    margin-bottom: 2.5rem; 
     color: #000;
     font-weight: 700;
     letter-spacing: -1px;
@@ -281,6 +288,7 @@ section h2 {
 .stat-card:hover {
     border-color: #000;
     transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
 }
 
 .stat-number {
@@ -384,6 +392,7 @@ section h2 {
 .project-card:hover {
     border-color: #000;
     transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
 }
 
 .project-content {
@@ -426,7 +435,7 @@ section h2 {
     font-size: 0.85rem;
     font-weight: 500;
     border: 1px solid #e0e0e0;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
 }
 
 .tag:hover {
@@ -585,6 +594,24 @@ section h2 {
     color: rgba(255, 255, 255, 0.8);
 }
 
+.get-in-touch-button {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.contact-cta-btn {
+    background: #fff;
+    color: #000;
+    border: 2px solid #fff;
+    padding: 18px 45px; 
+    font-size: 1.1rem;
+}
+
+.contact-cta-btn:hover {
+    background: transparent; 
+    color: #fff;
+}
+
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -649,6 +676,16 @@ footer {
     nav ul.active {
         display: flex;
     }
+    
+    nav ul.active li a {
+        padding: 0.8rem 1.5rem; 
+        display: block;
+    }
+    
+    nav ul.active li a::after {
+        content: none;
+    }
+
 
     nav ul li {
         text-align: center;
@@ -714,5 +751,14 @@ footer {
 
     .contact-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .get-in-touch-button {
+        margin-bottom: 2.5rem;
+    }
+
+    .contact-cta-btn {
+        padding: 15px 35px;
+        font-size: 1rem;
     }
 }
