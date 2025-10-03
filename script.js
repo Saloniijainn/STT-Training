@@ -1,4 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Scroll Progress Bar
+    const scrollProgress = document.getElementById('scrollProgress');
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+
+    const updateScrollProgress = () => {
+        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (window.scrollY / windowHeight) * 100;
+        scrollProgress.style.width = scrolled + '%';
+
+        // Show/hide scroll to top button
+        if (window.scrollY > 500) {
+            scrollToTopBtn.classList.add('visible');
+        } else {
+            scrollToTopBtn.classList.remove('visible');
+        }
+    };
+
+    window.addEventListener('scroll', updateScrollProgress);
+
+    // Scroll to top functionality
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
     // Mobile Menu Toggle
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
@@ -53,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const texts = [
         'Full Stack Data Science Developer',
         'AI Enthusiast',
+        'Machine Learning Engineer',
         'Problem Solver'
     ];
     let textIndex = 0;
