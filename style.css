@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    font-family: -apple-system, BlinkMacMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     color: #2c2c2c;
     background: #fdfcfa;
@@ -536,6 +536,17 @@ section h2 {
 .project-link:hover {
     color: #8e554f;
     transform: translateX(5px);
+}
+
+.project-status {
+    display: inline-block;
+    color: #a76360;
+    font-weight: 600;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: #f5f1eb;
+    border: 1px solid #e8e3dc;
+    font-size: 0.9rem;
 }
 
 .project-tags {
