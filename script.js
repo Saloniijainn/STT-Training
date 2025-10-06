@@ -1,82 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Scroll Progress Bar
+    // --- Element Selectors ---
     const scrollProgress = document.getElementById('scrollProgress');
     const scrollToTopBtn = document.getElementById('scrollToTop');
-
-    const updateScrollProgress = () => {
-        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (window.scrollY / windowHeight) * 100;
-        scrollProgress.style.width = scrolled + '%';
-
-        // Show/hide scroll to top button
-        if (window.scrollY > 500) {
-            scrollToTopBtn.classList.add('visible');
-        } else {
-            scrollToTopBtn.classList.remove('visible');
-        }
-    };
-
-    window.addEventListener('scroll', updateScrollProgress);
-
-    // Scroll to top functionality
-    scrollToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-
-    // Mobile Menu Toggle
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
     const navLinks = navMenu.querySelectorAll('a');
-
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-            }
-        });
-    });
-
-    // Navbar scroll effect
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-
-    // Active nav link on scroll
-    const sections = document.querySelectorAll('section');
-    const navLinksAll = document.querySelectorAll('.nav-link');
-
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (window.scrollY >= sectionTop - 200) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinksAll.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + current) {
-                link.classList.add('active');
-            }
-        });
-    });
-
-    // Typing effect for subtitle
+    const sections = document.querySelectorAll('section[id]');
     const typedTextElement = document.getElementById('typed-text');
+    const revealElements = document.querySelectorAll('.reveal');
+    const typingCursor = document.querySelector('.typing-cursor');
+
+    // --- Typing Effect Logic ---
     const texts = [
         'Full Stack Data Science Developer',
         'AI Enthusiast',
@@ -86,98 +21,108 @@ document.addEventListener('DOMContentLoaded', () => {
     let textIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
-    let typingDelay = 100;
-
+    
     function type() {
         const currentText = texts[textIndex];
         
         if (isDeleting) {
             typedTextElement.textContent = currentText.substring(0, charIndex - 1);
             charIndex--;
-            typingDelay = 50;
         } else {
             typedTextElement.textContent = currentText.substring(0, charIndex + 1);
             charIndex++;
-            typingDelay = 100;
         }
 
+        let typingDelay = isDeleting ? 50 : 100;
+
         if (!isDeleting && charIndex === currentText.length) {
+            // End of word: pause and start deleting
             typingDelay = 2000;
             isDeleting = true;
+            typingCursor.style.animation = 'none'; // Stop cursor blink on full text
         } else if (isDeleting && charIndex === 0) {
+            // End of deletion: move to next word and start typing
             isDeleting = false;
             textIndex = (textIndex + 1) % texts.length;
             typingDelay = 500;
+            typingCursor.style.animation = 'blink 1s infinite'; // Resume cursor blink
         }
-
+        
         setTimeout(type, typingDelay);
     }
-
+    
+    // Start the typing effect after a short delay
     setTimeout(type, 1000);
 
-    // Scroll reveal animation
-    const revealElements = document.querySelectorAll('.reveal');
 
-    const revealOnScroll = () => {
-        revealElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const elementBottom = element.getBoundingClientRect().bottom;
-            const windowHeight = window.innerHeight;
+    // --- Mobile Menu Toggle ---
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+    });
 
-            if (elementTop < windowHeight - 100 && elementBottom > 0) {
-                element.classList.add('active');
+    // Close menu on link click
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
+        });
+    });
+
+    // --- Scroll Event Handler (Progress Bar, Nav Shadow, Active Link, Scroll to Top Visibility) ---
+    const updateScrollState = () => {
+        // Scroll Progress
+        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (window.scrollY / windowHeight) * 100;
+        scrollProgress.style.width = scrolled + '%';
+
+        // Navbar Shadow
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+
+        // Scroll to Top Button Visibility
+        if (window.scrollY > 500) {
+            scrollToTopBtn.classList.add('visible');
+        } else {
+            scrollToTopBtn.classList.remove('visible');
+        }
+
+        // Active Navigation Link
+        let current = '';
+        sections.forEach(section => {
+            // Subtracting 200px offset for smoother transition
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (window.scrollY >= sectionTop - 200) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
             }
         });
     };
+    window.addEventListener('scroll', updateScrollState);
+    updateScrollState(); // Call once on load to set initial state
 
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
 
-    // Counter animation for stats
-    const statNumbers = document.querySelectorAll('.stat-number');
-    let hasAnimated = false;
+    // --- Scroll To Top Button Click ---
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 
-    const animateCounters = () => {
-        const aboutSection = document.getElementById('about');
-        const aboutTop = aboutSection.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-
-        if (aboutTop < windowHeight - 100 && !hasAnimated) {
-            hasAnimated = true;
-            statNumbers.forEach(stat => {
-                const target = parseFloat(stat.getAttribute('data-count'));
-                const isDecimal = target % 1 !== 0;
-                const duration = 2000;
-                const increment = target / (duration / 16);
-                let current = 0;
-
-                const updateCounter = () => {
-                    current += increment;
-                    if (current < target) {
-                        if (isDecimal) {
-                            stat.textContent = current.toFixed(2);
-                        } else {
-                            stat.textContent = Math.floor(current);
-                        }
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        if (isDecimal) {
-                            stat.textContent = target.toFixed(2);
-                        } else {
-                            stat.textContent = Math.floor(target);
-                        }
-                    }
-                };
-
-                updateCounter();
-            });
-        }
-    };
-
-    window.addEventListener('scroll', animateCounters);
-    animateCounters();
-
-    // Smooth scroll with offset for fixed navbar
+    // --- Smooth Anchor Scrolling for all links (Overwrites default) ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -186,7 +131,8 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                const offsetTop = targetElement.offsetTop - 80;
+                // Adjusting scroll position by 80px to account for fixed navbar height
+                const offsetTop = targetElement.offsetTop - 80; 
                 window.scrollTo({
                     top: offsetTop,
                     behavior: 'smooth'
@@ -194,4 +140,21 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // --- Reveal On Scroll Animation Logic ---
+    const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        revealElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementBottom = element.getBoundingClientRect().bottom;
+
+            // Activate element if it's visible in the viewport (with a 100px buffer)
+            if (elementTop < windowHeight - 100 && elementBottom > 0) {
+                element.classList.add('active');
+            }
+        });
+    };
+    
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll(); // Call once on load to reveal elements already in view
 });
