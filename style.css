@@ -1,3 +1,9 @@
+/*
+=============================
+    1. Global Reset & Base
+=============================
+*/
+
 * {
     margin: 0;
     padding: 0;
@@ -16,6 +22,7 @@ body {
     overflow-x: hidden;
 }
 
+/* Prevents scrolling when the mobile menu is open */
 body.menu-open {
     overflow: hidden;
 }
@@ -31,9 +38,52 @@ body.menu-open {
     transition: width 0.1s ease;
 }
 
+/* Fixes sections jumping due to fixed header */
 section[id] {
     scroll-margin-top: 80px; 
 } 
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+section {
+    padding: 60px 2rem;
+    position: relative;
+}
+
+/* Section divider line */
+section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #e8e3dc;
+}
+
+section:last-of-type::after {
+    display: none;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 2.5rem; 
+    color: #726358;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+/*
+=============================
+    2. Navigation (Navbar)
+=============================
+*/
 
 nav {
     background: #fdfcfa;
@@ -50,9 +100,6 @@ nav.scrolled {
 }
 
 nav .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -80,6 +127,7 @@ nav a {
     font-weight: 500;
 }
 
+/* Underline animation on hover/active */
 nav a::after {
     content: '';
     position: absolute;
@@ -102,6 +150,7 @@ nav a.active {
     color: #a76360;
 }
 
+/* Burger menu button */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -109,6 +158,8 @@ nav a.active {
     border: none;
     cursor: pointer;
     gap: 5px;
+    position: relative; /* Added for mobile fix */
+    z-index: 1001; /* Added for mobile fix */
 }
 
 .menu-toggle span {
@@ -117,6 +168,24 @@ nav a.active {
     background: #726358;
     transition: all 0.3s;
 }
+
+/* Burger menu animation */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+/*
+=============================
+    3. Hero Section
+=============================
+*/
 
 .hero {
     background: #726358;
@@ -164,6 +233,7 @@ nav a.active {
     font-weight: 400;
 }
 
+/* Typing cursor animation */
 .typing-cursor {
     display: inline-block;
     width: 2px;
@@ -191,6 +261,7 @@ nav a.active {
     flex-wrap: wrap;
 }
 
+/* Global button styles */
 .btn {
     display: inline-block;
     padding: 14px 32px;
@@ -225,6 +296,7 @@ nav a.active {
     color: #726358;
 }
 
+/* Scroll reveal animation */
 .reveal {
     opacity: 0;
     transform: translateY(20px);
@@ -236,40 +308,11 @@ nav a.active {
     transform: translateY(0);
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-section {
-    padding: 60px 2rem;
-    position: relative;
-}
-
-section::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: #e8e3dc;
-}
-
-section:last-of-type::after {
-    display: none;
-}
-
-section h2 {
-    text-align: center;
-    font-size: 2.8rem;
-    margin-bottom: 2.5rem; 
-    color: #726358;
-    font-weight: 700;
-    letter-spacing: -1px;
-}
+/*
+=============================
+    4. About Section
+=============================
+*/
 
 .about {
     background: #f7f4ef;
@@ -335,6 +378,12 @@ section h2 {
     line-height: 1.6;
     margin: 0;
 }
+
+/*
+=============================
+    5. Experience Section
+=============================
+*/
 
 #experience {
     background: #fdfcfa;
@@ -403,6 +452,12 @@ section h2 {
     color: #a76360;
     font-weight: bold;
 }
+
+/*
+=============================
+    6. Skills Section
+=============================
+*/
 
 #skills {
     background: linear-gradient(135deg, #fdfcfa 0%, #f7f4ef 100%);
@@ -492,6 +547,12 @@ section h2 {
     z-index: 1;
 }
 
+/*
+=============================
+    7. Projects Section
+=============================
+*/
+
 .projects {
     background: linear-gradient(135deg, #f7f4ef 0%, #ede8e0 100%);
     position: relative;
@@ -515,22 +576,21 @@ section h2 {
     margin: 0 auto;
 }
 
-/* Important: This allows the JS to control the scrolling via transform, 
-    but still keeps the scrollbar for fallback/user access. */
 .projects-container {
     display: flex;
     gap: 2.5rem;
-    overflow-x: auto;
+    overflow-x: auto; /* Enables native horizontal scrolling */
     scroll-behavior: smooth;
     padding: 2rem 0;
     scrollbar-width: thin;
     scrollbar-color: #a76360 #e8e3dc;
     -webkit-overflow-scrolling: touch;
     
-    /* Ensure hardware acceleration for smooth transform */
-    will-change: transform; 
+    /* Ensure hardware acceleration for smooth transform/scroll */
+    will-change: transform, scroll-position; 
 }
 
+/* Custom Webkit scrollbar styles */
 .projects-container::-webkit-scrollbar {
     height: 8px;
 }
@@ -561,6 +621,7 @@ section h2 {
     flex-shrink: 0;
 }
 
+/* Shimmer border effect */
 .project-card::before {
     content: '';
     position: absolute;
@@ -774,6 +835,12 @@ section h2 {
     z-index: 1;
 }
 
+/*
+=============================
+    8. Education Section
+=============================
+*/
+
 .education {
     background: #f7f4ef;
 }
@@ -879,6 +946,12 @@ section h2 {
     transform: translateX(3px);
 }
 
+/*
+=============================
+    9. Contact & Footer
+=============================
+*/
+
 .contact {
     background: #726358;
     color: #fdfcfa;
@@ -952,6 +1025,7 @@ footer {
     border-top: 1px solid #8c7b6e;
 }
 
+/* Scroll To Top Button */
 .scroll-to-top {
     position: fixed;
     bottom: 30px;
@@ -986,6 +1060,12 @@ footer {
     transform: translateY(-1px);
 }
 
+/*
+=============================
+    10. Mobile Responsiveness
+=============================
+*/
+
 @media (max-width: 768px) {
     .profile-placeholder {
         width: 100px;
@@ -993,6 +1073,7 @@ footer {
         font-size: 2.2rem;
     }
 
+    /* Mobile Navigation Menu */
     nav ul {
         display: none;
         flex-direction: column;
@@ -1016,8 +1097,9 @@ footer {
         display: block;
     }
     
+    /* Crucial: Disable the underline animation for mobile menu links */
     nav ul.active li a::after {
-        content: none;
+        content: none; 
     }
 
     nav ul li {
@@ -1051,6 +1133,7 @@ footer {
         margin-bottom: 2.5rem;
     }
 
+    /* About Section Stacking */
     .about-content {
         grid-template-columns: 1fr;
         gap: 2.5rem;
@@ -1060,9 +1143,21 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    /* Projects Section Mobile Fixes */
+    .projects-wrapper {
+        padding: 0 1.5rem; /* Better spacing for mobile */
+    }
+
+    .projects-container {
+        /* Counteract the wrapper padding so cards can touch the edge */
+        margin-left: -1.5rem;
+        margin-right: -1.5rem;
+        padding: 2rem 1.5rem; /* Give padding back to the scrollable area */
+    }
+
     .project-card {
-        min-width: 320px;
-        max-width: 320px;
+        min-width: 280px; /* Ensures scroll works on small phones */
+        max-width: 85vw; /* KEY FIX: Uses 85% of viewport width for flexibility */
     }
 
     .scroll-indicator {
@@ -1075,6 +1170,7 @@ footer {
         font-size: 1.3rem;
     }
 
+    /* Experience & Education Stacking */
     .timeline-header {
         flex-direction: column;
     }
