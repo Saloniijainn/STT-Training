@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saloni P Jain - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"> 
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
@@ -60,19 +61,19 @@
                 </div>
                 <div class="about-highlights reveal">
                     <div class="highlight-card">
-                        <h4>🎓 Academic Excellence</h4>
+                        <i class="fas fa-graduation-cap highlight-icon"></i><h4>🎓 Academic Excellence</h4>
                         <p>Maintaining 8.79 CGPA while pursuing B.E. in Information Science & Engineering</p>
                     </div>
                     <div class="highlight-card">
-                        <h4>💡 Innovation Focus</h4>
+                        <i class="fas fa-lightbulb highlight-icon"></i><h4>💡 Innovation Focus</h4>
                         <p>Specializing in AI, ML, and Full-Stack Development with production-grade experience</p>
                     </div>
                     <div class="highlight-card">
-                        <h4>🤝 Community Impact</h4>
+                        <i class="fas fa-handshake highlight-icon"></i><h4>🤝 Community Impact</h4>
                         <p>Leading volunteer initiatives that mentor and support underprivileged children</p>
                     </div>
                     <div class="highlight-card">
-                        <h4>🚀 Results-Driven</h4>
+                        <i class="fas fa-rocket highlight-icon"></i><h4>🚀 Results-Driven</h4>
                         <p>Delivered projects serving 100+ users with measurable performance improvements</p>
                     </div>
                 </div>
@@ -85,6 +86,7 @@
             <h2 class="reveal">Professional Experience</h2>
             <div class="experience-timeline">
                 <div class="timeline-item reveal">
+                    <div class="timeline-dot"><i class="fas fa-laptop-code"></i></div>
                     <div class="timeline-header">
                         <div>
                             <h3>Full Stack Data Science Intern</h3>
@@ -101,6 +103,7 @@
                 </div>
                 
                 <div class="timeline-item reveal">
+                    <div class="timeline-dot"><i class="fas fa-hands-helping"></i></div>
                     <div class="timeline-header">
                         <div>
                             <h3>Lead Volunteer</h3>
@@ -123,7 +126,7 @@
             <h2 class="reveal">Technical Skills</h2>
             <div class="skills-container">
                 <div class="skill-category reveal">
-                    <h3>Programming & Data</h3>
+                    <h3><i class="fas fa-code"></i> Programming & Data</h3>
                     <div class="skills-list">
                         <div class="skill-item"><span>Python</span></div>
                         <div class="skill-item"><span>SQL</span></div>
@@ -134,7 +137,7 @@
                 </div>
 
                 <div class="skill-category reveal">
-                    <h3>Machine Learning & AI</h3>
+                    <h3><i class="fas fa-brain"></i> Machine Learning & AI</h3>
                     <div class="skills-list">
                         <div class="skill-item"><span>scikit-learn</span></div>
                         <div class="skill-item"><span>pandas</span></div>
@@ -148,7 +151,7 @@
                 </div>
 
                 <div class="skill-category reveal">
-                    <h3>Web Development</h3>
+                    <h3><i class="fas fa-laptop-code"></i> Web Development</h3>
                     <div class="skills-list">
                         <div class="skill-item"><span>Django</span></div>
                         <div class="skill-item"><span>React</span></div>
@@ -160,7 +163,7 @@
                 </div>
 
                 <div class="skill-category reveal">
-                    <h3>Data Engineering & Cloud</h3>
+                    <h3><i class="fas fa-cloud"></i> Data Engineering & Cloud</h3>
                     <div class="skills-list">
                         <div class="skill-item"><span>SQL Pipelines</span></div>
                         <div class="skill-item"><span>AWS</span></div>
@@ -170,7 +173,7 @@
                 </div>
 
                 <div class="skill-category reveal">
-                    <h3>Visualization & BI</h3>
+                    <h3><i class="fas fa-chart-bar"></i> Visualization & BI</h3>
                     <div class="skills-list">
                         <div class="skill-item"><span>Seaborn</span></div>
                         <div class="skill-item"><span>Power BI</span></div>
@@ -178,7 +181,7 @@
                 </div>
 
                 <div class="skill-category reveal">
-                    <h3>Soft Skills</h3>
+                    <h3><i class="fas fa-users"></i> Soft Skills</h3>
                     <div class="skills-list">
                         <div class="skill-item"><span>Collaborative</span></div>
                         <div class="skill-item"><span>Adaptable</span></div>
@@ -219,7 +222,7 @@
                             <span class="project-year">2025</span>
                             <h3>Production AI Chatbot</h3>
                             <p>Built a production-ready AI chatbot with semantic search capabilities using FAISS and SentenceTransformers. Implemented RAG pipeline with GPT-4o-mini, featuring Human-in-the-Loop feedback and faithfulness scoring. Achieved 30% reduction in API calls through caching and optimization.</p>
-                            <div class="project-stats">
+                            <div class="project-stats-wrapper">
                                 <div class="project-stat">
                                     <span class="stat-value">30%</span>
                                     <span class="stat-label">API Optimization</span>
@@ -237,7 +240,7 @@
                                 <span class="tag"><span>FAISS</span></span>
                                 <span class="tag"><span>RAG</span></span>
                             </div>
-                            <a href="https://github.com/Saloniijainn/AI-powered-healthtech-assistant" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub →</a>
+                            <a href="https://github.com/Saloniijainn/AI-powered-healthtech-assistant" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     
@@ -246,7 +249,7 @@
                             <span class="project-year">2024</span>
                             <h3>ZERO – Academic Management Platform</h3>
                             <p>Developed a full-stack Django platform to manage assignments, question banks, and submissions. Designed modular apps with role-based access control, secure authentication, and an admin dashboard serving the academic community.</p>
-                            <div class="project-stats">
+                            <div class="project-stats-wrapper">
                                 <div class="project-stat">
                                     <span class="stat-value">100+</span>
                                     <span class="stat-label">Active Users</span>
@@ -263,13 +266,13 @@
                                 <span class="tag"><span>HTML/CSS</span></span>
                                 <span class="tag"><span>Bootstrap</span></span>
                             </div>
-                            <a href="https://github.com/Saloniijainn/ZERO--Academic-assignment-and-Question-Management-Platform" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub →</a>
+                            <a href="https://github.com/Saloniijainn/ZERO--Academic-assignment-and-Question-Management-Platform" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="scroll-indicator">
-                    <button class="scroll-btn" id="scrollLeft" aria-label="Scroll left">←</button>
-                    <button class="scroll-btn" id="scrollRight" aria-label="Scroll right">→</button>
+                    <button class="scroll-btn" id="scrollLeft" aria-label="Scroll left"><i class="fas fa-arrow-left"></i></button>
+                    <button class="scroll-btn" id="scrollRight" aria-label="Scroll right"><i class="fas fa-arrow-right"></i></button>
                 </div>
             </div>
         </div>
@@ -278,7 +281,8 @@
     <section class="education" id="education">
         <div class="container">
             <h2 class="reveal">Education & Certifications</h2>
-                        <div class="education-card reveal">
+            <div class="education-card reveal">
+                <i class="fas fa-university education-icon"></i>
                 <div class="education-header">
                     <div>
                         <h3>Vidyavardhaka College of Engineering (VVCE)</h3>
@@ -291,22 +295,25 @@
                     </div>
                 </div>
             </div>
-            <h3 class="certifications-title">Certifications</h3>
+            <h3 class="certifications-title reveal">Certifications</h3>
             <div class="certifications-grid">
                 <div class="cert-item reveal">
+                    <i class="fas fa-certificate cert-icon"></i>
                     <h4>Google Cloud Career Launchpad</h4>
                     <p class="cert-org">Cloud Engineer Track</p>
-                    <a href="https://drive.google.com/file/d/1TCvI4BKL9cST0lm0SoEzQNjb1kFKBTdx/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-link">View Credential →</a>
+                    <a href="https://drive.google.com/file/d/1TCvI4BKL9cST0lm0SoEzQNjb1kFKBTdx/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-link">View Credential <i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <div class="cert-item reveal">
+                    <i class="fas fa-certificate cert-icon"></i>
                     <h4>Google Cloud Career Launchpad</h4>
                     <p class="cert-org">Data Analytics Track</p>
-                    <a href="https://drive.google.com/file/d/1gRPpp-hdd12-EHWKykgb9sxL_sA6uFLY/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-link">View Credential →</a>
+                    <a href="https://drive.google.com/file/d/1gRPpp-hdd12-EHWKykgb9sxL_sA6uFLY/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-link">View Credential <i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <div class="cert-item reveal">
+                    <i class="fas fa-certificate cert-icon"></i>
                     <h4>AWS Academy Graduate</h4>
                     <p class="cert-org">Cloud Architecting</p>
-                    <a href="https://drive.google.com/file/d/1FRjhQSXW9AIMzlBt3A9jL6dMV1O8d6x8/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-link">View Credential →</a>
+                    <a href="https://drive.google.com/file/d/1FRjhQSXW9AIMzlBt3A9jL6dMV1O8d6x8/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-link">View Credential <i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>
         </div>
@@ -318,19 +325,19 @@
             <p class="contact-subtitle reveal">Open to full-time opportunities, internships, and collaborative projects in AI/ML, Data Science, and Full-Stack Development</p>
             <div class="contact-grid">
                 <div class="contact-item reveal">
-                    <div class="contact-icon">📧</div>
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                     <h3>Email</h3>
                     <a href="mailto:saloniijainnn@gmail.com">saloniijainnn@gmail.com</a>
                     <p class="contact-desc">For professional inquiries and collaboration opportunities</p>
                 </div>
                 <div class="contact-item reveal">
-                    <div class="contact-icon">📱</div>
+                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
                     <h3>Phone</h3>
                     <a href="tel:+917483647388">+91 7483647388</a>
                     <p class="contact-desc">Available for calls Mon-Fri, 10 AM - 6 PM IST</p>
                 </div>
                 <div class="contact-item reveal">
-                    <div class="contact-icon">💻</div>
+                    <div class="contact-icon"><i class="fab fa-github"></i></div>
                     <h3>GitHub</h3>
                     <a href="https://github.com/Saloniijainn" target="_blank" rel="noopener noreferrer">@Saloniijainn</a>
                     <p class="contact-desc">Explore my code and contributions</p>
@@ -345,7 +352,7 @@
         </div>
     </footer>
     
-    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">↑</button>
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
     
     <script src="script.js"></script> 
 </body>
