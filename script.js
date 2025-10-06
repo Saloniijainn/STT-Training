@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Scroll Progress Bar & Scroll-To-Top Button Logic ---
     const scrollProgress = document.getElementById('scrollProgress');
     const scrollToTopBtn = document.getElementById('scrollToTop');
     
@@ -7,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const scrolled = (window.scrollY / windowHeight) * 100;
         scrollProgress.style.width = scrolled + '%';
         
+        // Show/Hide Scroll-To-Top Button
         if (window.scrollY > 500) {
             scrollToTopBtn.classList.add('visible');
         } else {
@@ -23,41 +25,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
+    // --- Mobile Menu Toggle Logic ---
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
-    const navLinks = navMenu.querySelectorAll('a');
+    // Ensure you use the ID of your <nav> element, which is likely 'navbar' from your CSS
+    const navbar = document.getElementById('navbar'); 
+    const navLinks = navMenu ? navMenu.querySelectorAll('a') : []; // Check if navMenu exists
     
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        document.body.classList.toggle('menu-open');
-    });
-    
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            // Toggling 'active' on menuToggle will enable the CSS burger animation
+            menuToggle.classList.toggle('active'); 
+            navMenu.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+    }
+
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             if (navMenu.classList.contains('active')) {
+                // Remove the 'active' class on both menu and toggle to close it
                 navMenu.classList.remove('active');
+                if (menuToggle) menuToggle.classList.remove('active'); 
                 document.body.classList.remove('menu-open');
             }
         });
     });
     
-    const navbar = document.getElementById('navbar');
+    // --- Navbar Scroll Shadow Logic ---
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
+            if (navbar) navbar.classList.add('scrolled');
         } else {
-            navbar.classList.remove('scrolled');
+            if (navbar) navbar.classList.remove('scrolled');
         }
     });
     
-    const sections = document.querySelectorAll('section');
+    // --- Active Link Highlight Logic ---
+    const sections = document.querySelectorAll('section[id]');
     const navLinksAll = document.querySelectorAll('.nav-link');
     
     window.addEventListener('scroll', () => {
         let current = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            if (window.scrollY >= sectionTop - 200) { 
+            // Use window.scrollY > sectionTop - (Height of nav + some offset)
+            if (window.scrollY >= sectionTop - 100) { 
                 current = section.getAttribute('id');
             }
         });
@@ -70,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
+    // --- Typing Animation Logic ---
     const typedTextElement = document.getElementById('typed-text');
     const texts = [
         'Full Stack Data Science Developer',
@@ -83,6 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let typingDelay = 100;
     
     function type() {
+        if (!typedTextElement) return;
+
         const currentText = texts[textIndex];
         
         if (isDeleting) {
@@ -107,8 +123,11 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(type, typingDelay);
     }
     
-    setTimeout(type, 1000);
+    if (typedTextElement) {
+        setTimeout(type, 1000);
+    }
     
+    // --- Scroll Reveal Animation Logic ---
     const revealElements = document.querySelectorAll('.reveal');
     
     const revealOnScroll = () => {
@@ -124,93 +143,53 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
     window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
+    revealOnScroll(); // Run once on load to catch elements already in view
     
-    // --- PROJECTS HORIZONTAL AUTO-SCROLL LOGIC ---
+    // ----------------------------------------------------------------------
+    // --- MOBILE-FRIENDLY PROJECTS HORIZONTAL SCROLL LOGIC (Simplified) ---
+    // ----------------------------------------------------------------------
     const projectsContainer = document.getElementById('projectsContainer');
     const scrollLeftBtn = document.getElementById('scrollLeft');
     const scrollRightBtn = document.getElementById('scrollRight');
 
     if (projectsContainer && scrollLeftBtn && scrollRightBtn) {
-        let scrollInterval;
-        const scrollSpeed = 60; // seconds for one full scroll cycle
-
-        // Function to start the continuous auto-scroll animation
-        function startAutoScroll() {
-            const totalContentWidth = projectsContainer.scrollWidth;
-            const visibleWidth = projectsContainer.clientWidth;
-            const maxScrollLeft = totalContentWidth - visibleWidth;
-
-            // Only scroll if content exceeds the container width
-            if (maxScrollLeft <= 0) return; 
-
-            // 1. Reset scroll position to 0 
-            projectsContainer.scrollLeft = 0;
-
-            // 2. Set the CSS transition for a smooth, slow animation
-            projectsContainer.style.transition = `transform ${scrollSpeed}s linear`;
-
-            // 3. Apply the transform to scroll to the end
-            projectsContainer.style.transform = `translateX(-${maxScrollLeft}px)`;
-
-            // 4. Set a timeout to reset and loop the animation when it finishes
-            scrollInterval = setTimeout(() => {
-                // Remove transition for an instant jump back
-                projectsContainer.style.transition = 'none';
-                projectsContainer.style.transform = 'translateX(0)';
-
-                // Restart the scroll cycle immediately after the instant jump
-                setTimeout(startAutoScroll, 50); // Small delay to re-apply transition
-            }, scrollSpeed * 1000);
-        }
-
-        // Function to stop the automatic scroll (on user interaction)
-        function stopAutoScroll() {
-            clearTimeout(scrollInterval);
-            
-            // Capture the current visual position to avoid a jump when removing the transition
-            const currentTransform = window.getComputedStyle(projectsContainer).transform;
-            
-            // Remove the transition and reset transform, then re-apply the position
-            projectsContainer.style.transition = 'none';
-            projectsContainer.style.transform = currentTransform; 
-        }
-
-        // Manual Scroll Buttons (Override Auto-Scroll)
-        const handleManualScroll = (distance) => {
-            stopAutoScroll(); // Stop automatic scroll on user click
+        
+        // This calculates the distance to scroll by (e.g., width of one card + gap)
+        const getScrollDistance = () => {
+             // Get the width of one card or 90% of the visible container width
+             const card = projectsContainer.querySelector('.project-card');
+             if (card) {
+                // Card width + a bit of gap (assuming 2.5rem gap is about 40px)
+                return card.offsetWidth + 40; 
+             }
+             // Fallback to 90% of viewport width
+             return projectsContainer.clientWidth * 0.9;
+        };
+        
+        scrollLeftBtn.addEventListener('click', () => {
             projectsContainer.scrollBy({
-                left: distance,
+                left: -getScrollDistance(),
                 behavior: 'smooth'
             });
-            // Auto-scroll will not resume automatically after manual scroll
-        };
-
-        scrollLeftBtn.addEventListener('click', () => handleManualScroll(-450));
-        scrollRightBtn.addEventListener('click', () => handleManualScroll(450));
-
-        // Touch/swipe support for mobile (Also overrides Auto-Scroll)
-        projectsContainer.addEventListener('touchstart', stopAutoScroll); // Stop on touch
-        
-        let startX;
-        projectsContainer.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-        });
-        
-        projectsContainer.addEventListener('touchmove', (e) => {
-            if (!startX) return;
-            const currentX = e.touches[0].clientX;
-            const diff = startX - currentX;
-            projectsContainer.scrollLeft += diff;
-            startX = currentX;
         });
 
-        // Start the automatic scroll when the page loads
-        startAutoScroll();
+        scrollRightBtn.addEventListener('click', () => {
+            projectsContainer.scrollBy({
+                left: getScrollDistance(),
+                behavior: 'smooth'
+            });
+        });
+
+        // NOTE: The current setup relies on native **touch/swipe support** // provided by the browser when 'overflow-x: auto' is used in the CSS, 
+        // so no extra 'touchstart/touchmove' event listeners are needed!
+        // This is the most mobile-friendly way.
+        
+        // The complex auto-scroll logic (startAutoScroll, stopAutoScroll) 
+        // has been removed for better mobile performance and compatibility.
     }
-    // --- END AUTO-SCROLL LOGIC ---
+    // ----------------------------------------------------------------------
 
-    // Smooth scroll for anchor links
+    // --- Smooth Scroll for Anchor Links ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -219,7 +198,8 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                const offsetTop = targetElement.offsetTop - 80; // Adjusted for fixed navbar height
+                // Subtract 80px for the fixed navigation bar
+                const offsetTop = targetElement.offsetTop - 80; 
                 window.scrollTo({
                     top: offsetTop,
                     behavior: 'smooth'
